@@ -1,0 +1,70 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Flashcards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #ff4d79, #1e90ff); /* Gradient Color */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 200px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Week Content */
+#week-content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Table */
+#week-content table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: linear-gradient(135deg, #ff4d79, #1e90ff); /* Same as Flashcards */
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Table headers */
+#week-content table th {
+    background: #357ABD; /* Darker shade */
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Table rows */
+#week-content table td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Alternate row styling */
+#week-content table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
