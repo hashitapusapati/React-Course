@@ -3,99 +3,129 @@ document.addEventListener("DOMContentLoaded", () => {
     const weekContent = document.getElementById("week-content");
 
     const weeks = [
-        { title: "Frontend Basics & JavaScript", days: [
-            "Introduction to Frontend Development",
-            "HTML & CSS Basics",
-            "JavaScript Essentials (ES6+)",
+        { title: "Introduction & Web Basics", days: [
+            "Introduction to Web Development",
+            "HTML Basics",
+            "CSS Fundamentals",
+            "JavaScript Introduction",
+            "Project: Simple Landing Page",
+            "Review & Practice",
+            "Q&A Session"
+        ]},
+        { title: "JavaScript Essentials", days: [
+            "JavaScript Basics (ES6+)",
+            "Functions & Scope",
             "DOM Manipulation",
-            "Project: Build a Static Portfolio Page",
+            "Event Handling",
+            "Project: Interactive Calculator",
+            "Review & Practice",
+            "Q&A Session"
+        ]},
+        { title: "Advanced JavaScript & Async Programming", days: [
+            "Closures & Callbacks",
+            "Promises & Async/Await",
+            "Working with APIs",
+            "LocalStorage & SessionStorage",
+            "Project: Weather App with API",
             "Review & Practice",
             "Q&A Session"
         ]},
         { title: "Introduction to React", days: [
-            "What is React? Why React?",
-            "Setting up React Project",
-            "JSX & Virtual DOM",
-            "Components (Function & Class)",
-            "Props & State Management",
-            "Project: Simple To-Do List",
+            "Why React? Basics of JSX",
+            "React Components & Props",
+            "State & Event Handling",
+            "React Lifecycle Methods",
+            "Project: Simple To-Do App",
+            "Review & Practice",
             "Q&A Session"
         ]},
         { title: "React Core Concepts", days: [
-            "Event Handling in React",
-            "Controlled vs Uncontrolled Components",
-            "Forms in React",
             "Conditional Rendering",
-            "Project: Interactive Survey Form",
-            "Review & Practice",
-            "Q&A Session"
-        ]},
-        { title: "React Hooks & Lifecycle", days: [
-            "useState Hook",
-            "useEffect & Lifecycle Methods",
-            "useRef Hook",
+            "Forms & Controlled Components",
             "Lifting State Up",
-            "Project: Weather App with API Integration",
-            "Review & Practice",
-            "Q&A Session"
-        ]},
-        { title: "Routing & Styling", days: [
             "React Router Basics",
-            "Dynamic Routing & Navigation",
-            "Component Styling Techniques",
             "Project: Multi-Page Blog",
             "Review & Practice",
-            "Q&A Session",
-            "Deployment Discussion"
+            "Q&A Session"
         ]},
-        { title: "State Management", days: [
-            "Local & Global State",
-            "React Context API",
+        { title: "React Hooks & State Management", days: [
+            "useState & useEffect",
+            "useContext & Custom Hooks",
             "Redux Basics",
             "Project: E-Commerce Cart System",
             "Review & Practice",
             "Q&A Session",
             "Advanced State Management"
         ]},
-        { title: "API & Performance", days: [
-            "Fetching Data with Axios",
-            "Custom Hooks for API Calls",
-            "Optimizing Performance",
-            "Project: Movie Search App",
+        { title: "Styling & Performance Optimization", days: [
+            "CSS-in-JS & Styled Components",
+            "Material UI & Tailwind CSS",
+            "React Performance Optimization",
+            "Project: Portfolio Website",
             "Review & Practice",
             "Q&A Session",
             "Performance Tuning"
         ]},
+        { title: "APIs & Data Fetching", days: [
+            "Fetching Data with Fetch & Axios",
+            "Handling Errors in API Calls",
+            "Authentication & JWT",
+            "Project: Movie Search App",
+            "Review & Practice",
+            "Q&A Session",
+            "Advanced API Handling"
+        ]},
+        { title: "Advanced React Features", days: [
+            "React Context API vs Redux",
+            "Server-Side Rendering (SSR) Basics",
+            "Next.js Introduction",
+            "Project: Blogging Platform",
+            "Review & Practice",
+            "Q&A Session",
+            "Performance Improvements"
+        ]},
+        { title: "Full Stack Development Basics", days: [
+            "Introduction to Backend (Node.js & Express)",
+            "Connecting React with Express",
+            "MongoDB & Mongoose Basics",
+            "Project: Full-Stack Notes App",
+            "Review & Practice",
+            "Q&A Session",
+            "Final Project Discussion"
+        ]},
         { title: "Authentication & Deployment", days: [
-            "JWT Authentication",
+            "User Authentication with JWT",
             "Role-Based Access Control",
-            "Deployment on Vercel/Netlify",
+            "Hosting & Deployment on Netlify/Vercel",
             "Final Project: Full-Stack Dashboard",
             "Code Review & Best Practices",
             "Final Review & Testing",
             "Closing Session"
+        ]},
+        { title: "Capstone Project & Final Review", days: [
+            "Capstone Project Kickoff",
+            "Team Collaboration & Git",
+            "Final Debugging & Optimization",
+            "Final Presentations & Feedback",
+            "Q&A & Career Advice",
+            "Certification & Closing Ceremony",
+            "Final Celebration"
         ]}
     ];
 
-    // Base start date
     const baseStartDate = new Date("2025-03-18");
 
     weeks.forEach((week, index) => {
-        // Create flashcard
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `<h2>Week ${index + 1}</h2><p>${week.title}</p>`;
 
         card.addEventListener("click", () => {
-            // Hide any previously displayed content
             weekContent.innerHTML = "";
-
-            // Create heading with new format
             const weekHeading = document.createElement("h2");
-            weekHeading.textContent = `Week 1 - Week ${weeks.length}: ${week.title}`;
+            weekHeading.textContent = `Week ${index + 1}: ${week.title}`;
             weekContent.appendChild(weekHeading);
 
-            // Generate table for the week schedule
             const table = document.createElement("table");
             table.innerHTML = `
                 <thead>
@@ -104,8 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <th>Topic</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody></tbody>
             `;
 
             let startDate = new Date(baseStartDate);
@@ -115,12 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
             week.days.forEach((day, i) => {
                 let date = new Date(startDate);
                 date.setDate(startDate.getDate() + i);
-                
                 const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${date.toDateString()}</td>
-                    <td>${day}</td>
-                `;
+                row.innerHTML = `<td>${date.toDateString()}</td><td>${day}</td>`;
                 tbody.appendChild(row);
             });
 
