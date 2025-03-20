@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // Base start date
-    const baseStartDate = new Date("2025-03-19");
+    const baseStartDate = new Date("2025-03-20");
 
     weeks.forEach((week, index) => {
         // Create flashcard for each week
